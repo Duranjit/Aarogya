@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Aarogya Bharat Logo">
+            </div>
+            <div class="nav-links">
+                <a href="landing.html">Home</a>
+                <a href="patient.html">Patient</a>
+                <a href="doctor.html">Doctor</a>
+                <a href="hospital.html">Hospital</a>
+                <a href="medical-details.html">Medical Details</a>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">U</div>
+                    <span id="userName">User</span>
+                    <button onclick="logout()"><a href="index.html">Logout</a></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="registration-form">
+        <h2>Hospital Registration</h2>
+        <form id="hospitalForm">
+            <label for="hospital-name">Hospital Name:</label>
+            <input type="text" id="hospital-name" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" required>
+
+            <label for="capacity">Bed Capacity:</label>
+            <input type="number" id="capacity" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

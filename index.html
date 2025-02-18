@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarogya Bharat - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="assets/pg2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <div class="login-box">
+            <img src="assets/logo.png" alt="Aarogya Bharat Logo" class="logo">
+            <h2>Welcome Back</h2>
+            <form id="loginForm"> 
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p class="note">New user? <a href="register.html">Register here</a></p>
+            </form>
+            <!-- Google Sign-In -->
+            <div id="g_id_onload"
+                 data-client_id="400549221868-7si98m461j3tu5h0il44cn1plts836jl.apps.googleusercontent.com"
+                 data-context="signin"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

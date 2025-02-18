@@ -1,0 +1,215 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #74ebd5, #9face6); /* Gradient background */
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Video Styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7; /* Slight transparency */
+}
+
+/* Container for Forms */
+.container {
+    position: relative;
+    z-index: 1; /* Above the video */
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Login/Registration Box */
+.login-box, .register-box {
+    background: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover, .register-box:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.logo:hover {
+    transform: rotate(360deg); /* Crazy spin effect */
+}
+
+/* Form Headings */
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 0.9em;
+    color: #ddd;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #777;
+    font-style: italic;
+}
+
+input:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5); /* Glow effect */
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #6c63ff, #8a67ff); /* Gradient button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #8a67ff, #6c63ff);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.5);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Google Sign-In Button */
+.g_id_signin {
+    margin: 20px auto;
+    display: block;
+}
+
+/* Note and Links */
+.note {
+    margin-top: 20px;
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8a67ff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-box, .register-box {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+
+    input,
+    button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+}
