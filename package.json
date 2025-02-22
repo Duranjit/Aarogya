@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.751.0",
+    "aws-sdk": "^2.1692.0",
+    "uuid": "^11.1.0"
+  },
+  "name": "aarogya-bharat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "landing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratiyush-alt/Aarogya-Bharat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pratiyush-alt/Aarogya-Bharat/issues"
+  },
+  "homepage": "https://github.com/pratiyush-alt/Aarogya-Bharat#readme"
+}

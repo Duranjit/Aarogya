@@ -1,21 +1,73 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Get user info (This could be from localStorage or backend API)
-    let userName = localStorage.getItem("userName") || "User";
-    document.getElementById("userName").innerText = userName.charAt(0).toUpperCase() + userName.slice(1);
+const API_URL = "https://vltf1xbnxb.execute-api.ap-south-1.amazonaws.com/dev/storePatientData";
 
-    // Logout function
-    window.logout = function () {
-        localStorage.removeItem("userName");  // Clear session
-        window.location.href = "landing.html";  // Redirect to home
-    };
+document.getElementById("patientForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    // Navbar Toggle for Mobile View
-    const menuToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    // Collect form values
+    const name = capitalizeFirstLetter(document.getElementById("patient-name").value.trim());
+    const age = document.getElementById("age").value.trim();
+    const gender = capitalizeFirstLetter(document.getElementById("gender").value);
+    const phone = document.getElementById("phone").value.trim();
+    const address = capitalizeFirstLetter(document.getElementById("address").value.trim());
 
-    if (menuToggle) {
-        menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
+    // Validate fields
+    if (!name || !age || !gender || !phone || !address) {
+        alert("All fields are required!");
+        return;
+    }
+    if (gender === "") {
+        alert("Please select a valid gender.");
+        return;
+    }
+
+    try {
+        // Debugging: Log payload being sent
+        console.log("Sending data:", { Name: name, Age: age, Gender: gender, Phone: phone, Address: address });
+
+        // Send POST request to the API Gateway endpoint
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                Name: name,
+                Age: age,
+                Gender: gender,
+                Phone: phone,
+                Address: address,
+            }),
         });
+
+        // Parse response safely
+        let result;
+        try {
+            result = await response.json();
+        } catch (jsonError) {
+            throw new Error(`Invalid JSON response: ${jsonError.message}`);
+        }
+
+        // Check if the response is okay
+        if (response.ok) {
+            alert("Patient registered successfully!");
+            console.log("Patient ID:", result.patientId);
+        } else {
+            console.error("Error from server:", result);
+            alert(`Error: ${result.message}`);
+        }
+    } catch (error) {
+        console.error("Registration error:", error);
+
+        // Handling CORS issue explicitly
+        if (error.message.includes("Failed to fetch")) {
+            alert("CORS policy error: Make sure your API Gateway allows requests from localhost.");
+        } else {
+            alert("Something went wrong. Please try again later.");
+        }
     }
 });
+
+// Function to capitalize the first letter of a string
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
